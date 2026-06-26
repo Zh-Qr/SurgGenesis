@@ -13,193 +13,108 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-      <nav class="nav-shell" aria-label="Primary navigation">
-        <a class="brand" href="#top" aria-label="SurgGenesis home">
-          <span class="brand-mark" aria-hidden="true">SG</span>
-          <span>SurgGenesis</span>
-        </a>
-        <div class="nav-links">
-          <a href="#demos">Demos</a>
-          <a href="#method">Method</a>
-          <a href="#results">Results</a>
-          <a href="#citation">Citation</a>
-        </div>
-        <a class="icon-button nav-code" href="https://github.com/Zh-Qr/SurgGenesis" target="_blank" rel="noreferrer" aria-label="Open repository on GitHub" title="Open repository on GitHub">
-          <i data-lucide="github"></i>
-        </a>
-      </nav>
-    </header>
-
     <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-label="Generated laparoscopic surgical future video">
-          <source src="assets/demo/videos/case_03/stage3_generated.mp4" type="video/mp4">
-        </video>
-        <div class="hero-scrim"></div>
-        <div class="hero-content content-width">
-          <p class="eyebrow">Generative surgical world model</p>
-          <h1 id="hero-title">SurgGenesis</h1>
-          <p class="hero-subtitle">Future-aware surgical understanding from a few seconds of endoscopic observation.</p>
-          <p class="hero-authors">SurgGenesis Team</p>
-          <div class="hero-actions" aria-label="Project links">
-            <a class="action-button action-button-light" href="#demos"><i data-lucide="play"></i>Watch demos</a>
-            <a class="action-button action-button-dark" href="https://github.com/Zh-Qr/SurgGenesis" target="_blank" rel="noreferrer"><i data-lucide="github"></i>Code</a>
-            <a class="action-button action-button-dark" href="#citation"><i data-lucide="quote"></i>Cite</a>
-          </div>
+      <header class="project-header content-width">
+        <p class="project-label">Surgical video world modeling</p>
+        <h1>SurgGenesis:<span>A Generative Surgical World Model for Future-Aware Surgical Understanding</span></h1>
+        <p class="project-authors"><a href="https://github.com/Zh-Qr" target="_blank" rel="noreferrer">Zh-Qr</a> and SurgGenesis Contributors</p>
+        <div class="project-actions" aria-label="Project links">
+          <a class="link-button" href="https://github.com/Zh-Qr/SurgGenesis" target="_blank" rel="noreferrer"><i data-lucide="github"></i>GitHub</a>
+          <a class="link-button" href="#qualitative-results"><i data-lucide="play"></i>Results</a>
         </div>
-        <div class="hero-caption content-width" aria-hidden="true">
-          <span>Conditioned future video</span>
-          <span>Case 03 · Stage 3</span>
+      </header>
+
+      <section class="abstract-section section-band" aria-labelledby="abstract-title">
+        <div class="narrow-width">
+          <h2 id="abstract-title">Abstract</h2>
+          <p>SurgGenesis rolls current endoscopic observations forward into plausible future surgical video. We progressively adapt a frozen video foundation model through additive LoRA stacking, data replay, text-distribution harmonization, and block-restricted training. The resulting shared predictive latent supports future video generation as well as surgical understanding, reconstruction, and trajectory forecasting.</p>
         </div>
       </section>
 
-      <section class="intro section-band" aria-labelledby="intro-title">
-        <div class="content-width intro-grid">
-          <div>
-            <p class="section-kicker">The question</p>
-            <h2 id="intro-title">What happens next in the operating room?</h2>
-          </div>
-          <div class="intro-copy">
-            <p>SurgGenesis adapts a video foundation model to laparoscopic surgery and rolls observed endoscopic frames forward into plausible future video.</p>
-            <p>Its progressive, additive LoRA curriculum preserves prior adaptation while adding structured surgical conditioning for triplets and trajectories.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="demos section-band" id="demos" aria-labelledby="demos-title">
+      <section class="showcase-section section-band" aria-labelledby="showcase-title">
         <div class="content-width">
-          <div class="section-heading split-heading">
-            <div>
-              <p class="section-kicker">Video prediction</p>
-              <h2 id="demos-title">One observation, multiple futures.</h2>
-            </div>
-            <p>Compare the observed surgical context, each curriculum stage, and the held-out future frame sequence.</p>
+          <h2 id="showcase-title">Surgical future prediction</h2>
+          <figure class="showcase-figure">
+            <img src="assets/demo/gifs/hero_comparison.gif" alt="Future video prediction across the three SurgGenesis curriculum stages">
+            <figcaption>Conditioned future prediction on Cholec80. Left to right: Stage 1, Stage 2, and Stage 3.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="method-section section-band" aria-labelledby="method-title">
+        <div class="content-width">
+          <h2 id="method-title">Overall framework</h2>
+          <p class="section-lead">Endoscopic observations and text conditioning enter a frozen video foundation model. Each adaptation stage permanently fuses its learned update before the next stage begins.</p>
+          <figure class="wide-figure">
+            <img src="assets/figures/overview.png" alt="SurgGenesis overview with endoscopic observations, progressive additive LoRA training, and generated future video">
+            <figcaption>Progressive additive LoRA stacking produces future video and a shared predictive latent for surgical tasks.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="qualitative-section section-band" id="qualitative-results" aria-labelledby="qualitative-title">
+        <div class="content-width">
+          <h2 id="qualitative-title">Future video prediction</h2>
+          <p class="section-lead">The same observed surgical context is propagated by three stages of the progressive curriculum.</p>
+
+          <div class="case-tabs" role="tablist" aria-label="Select surgical case">
+            <button class="case-tab is-active" type="button" role="tab" aria-selected="true" data-case="case_03">Case 03</button>
+            <button class="case-tab" type="button" role="tab" aria-selected="false" data-case="case_05">Case 05</button>
           </div>
 
-          <div class="comparison-tool" aria-label="Surgical video comparison">
-            <div class="comparison-toolbar">
-              <div class="tab-group" role="tablist" aria-label="Select case">
-                <button class="tab-button is-active" type="button" role="tab" aria-selected="true" data-case="case_03">Case 03</button>
-                <button class="tab-button" type="button" role="tab" aria-selected="false" data-case="case_05">Case 05</button>
-              </div>
-              <div class="tab-group tab-group-stage" role="tablist" aria-label="Select prediction source">
-                <button class="stage-button is-active" type="button" role="tab" aria-selected="true" data-stage="condition">Observation</button>
-                <button class="stage-button" type="button" role="tab" aria-selected="false" data-stage="base">Native</button>
-                <button class="stage-button" type="button" role="tab" aria-selected="false" data-stage="stage1">Stage 1</button>
-                <button class="stage-button" type="button" role="tab" aria-selected="false" data-stage="stage2">Stage 2</button>
-                <button class="stage-button" type="button" role="tab" aria-selected="false" data-stage="stage3">Stage 3</button>
-                <button class="stage-button" type="button" role="tab" aria-selected="false" data-stage="ground_truth_future">Ground truth</button>
-              </div>
-            </div>
-
-            <div class="comparison-frame">
-              <video id="comparison-video" class="comparison-video" controls muted loop playsinline preload="metadata" aria-label="Selected surgical video comparison">
+          <div class="prediction-grid" aria-label="Prediction comparison">
+            <figure class="prediction-panel observation-panel">
+              <div class="panel-title"><span>Observed context</span><small>Input</small></div>
+              <video id="observation-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Observed surgical context">
                 <source src="assets/demo/videos/case_03/condition.mp4" type="video/mp4">
               </video>
-              <div class="comparison-label" id="comparison-label">Case 03 · Observed context</div>
-            </div>
-
-            <div class="comparison-footer">
-              <p id="comparison-description">Observed context supplied to the world model before future prediction.</p>
-              <button class="icon-button replay-button" type="button" id="replay-video" aria-label="Replay selected video" title="Replay selected video"><i data-lucide="rotate-ccw"></i></button>
-            </div>
+            </figure>
+            <figure class="prediction-panel">
+              <div class="panel-title"><span>Stage 1</span><small>Domain transfer</small></div>
+              <video data-stage-video="stage1" autoplay muted loop playsinline controls preload="metadata" aria-label="Stage 1 surgical prediction">
+                <source src="assets/demo/videos/case_03/stage1_generated.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="prediction-panel">
+              <div class="panel-title"><span>Stage 2</span><small>Triplet conditioning</small></div>
+              <video data-stage-video="stage2" autoplay muted loop playsinline controls preload="metadata" aria-label="Stage 2 surgical prediction">
+                <source src="assets/demo/videos/case_03/stage2_generated.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="prediction-panel stage3-panel">
+              <div class="panel-title"><span>Stage 3</span><small>Trajectory conditioning</small></div>
+              <video data-stage-video="stage3" autoplay muted loop playsinline controls preload="metadata" aria-label="Stage 3 surgical prediction">
+                <source src="assets/demo/videos/case_03/stage3_generated.mp4" type="video/mp4">
+              </video>
+            </figure>
           </div>
         </div>
       </section>
 
-      <section class="method section-band" id="method" aria-labelledby="method-title">
+      <section class="applications-section section-band" aria-labelledby="applications-title">
         <div class="content-width">
-          <div class="section-heading centered-heading">
-            <p class="section-kicker">Method</p>
-            <h2 id="method-title">Progressive adaptation for surgical dynamics.</h2>
-            <p>Each stage fuses its learned update into the frozen foundation model before the next, more specialized adaptation begins.</p>
-          </div>
-          <figure class="method-figure">
-            <img src="assets/figures/overview.png" alt="SurgGenesis overview showing endoscopic observation, progressive additive LoRA training, and generated future content">
-            <figcaption>Observation and text conditioning enter a frozen video foundation model; progressive additive LoRA stacking yields future video and shared predictive latents.</figcaption>
+          <h2 id="applications-title">Generated content, downstream use.</h2>
+          <figure class="wide-figure">
+            <img src="assets/figures/downstream.png" alt="Generated surgical content used for data augmentation, scene understanding, 3D reconstruction, and trajectory forecasting">
+            <figcaption>Generated surgical video supports data augmentation, scene understanding, 3D reconstruction, and trajectory forecasting.</figcaption>
           </figure>
-          <div class="method-steps" aria-label="Three training stages">
-            <article>
-              <span class="step-number">01</span>
-              <h3>Domain transfer</h3>
-              <p>Cholec80 video quality with broad adaptation capacity.</p>
-            </article>
-            <article>
-              <span class="step-number">02</span>
-              <h3>Behavior understanding</h3>
-              <p>Triplet conditioning for instrument, action, and target.</p>
-            </article>
-            <article>
-              <span class="step-number">03</span>
-              <h3>Motion refinement</h3>
-              <p>Trajectory-aware conditioning for future surgical motion.</p>
-            </article>
+
+          <div class="result-strip" aria-label="Selected Stage 3 results">
+            <div><span>Distribution realism</span><strong>79.95</strong><small>FVD down</small></div>
+            <div><span>Prediction error</span><strong>14.32</strong><small>RMSE at 1 s down</small></div>
+            <div><span>Triplet understanding</span><strong>+6.34%</strong><small>AP-IVT up</small></div>
+            <div><span>Instrument fidelity</span><strong>91.3</strong><small>Dice up</small></div>
           </div>
         </div>
       </section>
 
-      <section class="results section-band" id="results" aria-labelledby="results-title">
+      <section class="ablation-section section-band" aria-labelledby="ablation-title">
         <div class="content-width">
-          <div class="section-heading split-heading">
-            <div>
-              <p class="section-kicker">Results</p>
-              <h2 id="results-title">A shared predictive latent for downstream surgery.</h2>
-            </div>
-            <p>Generated video is more than an endpoint: it becomes a reusable substrate for understanding, reconstruction, and forecasting.</p>
-          </div>
-
-          <figure class="downstream-figure">
-            <img src="assets/figures/downstream.png" alt="Generated surgical videos used for data augmentation, scene understanding, 3D reconstruction, and trajectory forecasting">
-            <figcaption>Generated surgical content supports data augmentation, scene understanding, 3D reconstruction, and trajectory forecasting.</figcaption>
+          <h2 id="ablation-title">Stage ablation</h2>
+          <figure class="wide-figure">
+            <img src="assets/figures/ablation.png" alt="Stage ablation showing frame prediction error, distribution metric, and augmentation analysis">
+            <figcaption>Stage 3 yields the strongest reported distributional and temporal prediction performance under the corrected stage-label convention.</figcaption>
           </figure>
-
-          <div class="metric-row" aria-label="Selected Stage 3 results">
-            <article class="metric-item">
-              <span>Distribution realism</span>
-              <strong>79.95</strong>
-              <small>FVD ↓</small>
-            </article>
-            <article class="metric-item">
-              <span>Prediction error</span>
-              <strong>14.32</strong>
-              <small>RMSE at 1 s ↓</small>
-            </article>
-            <article class="metric-item">
-              <span>Triplet understanding</span>
-              <strong>+6.34%</strong>
-              <small>AP-IVT ↑</small>
-            </article>
-            <article class="metric-item">
-              <span>Instrument fidelity</span>
-              <strong>91.3</strong>
-              <small>Dice ↑</small>
-            </article>
-          </div>
-
-          <figure class="ablation-figure">
-            <div class="figure-label">Stage ablation</div>
-            <img src="assets/figures/ablation.png" alt="Stage ablation across frame RMSE, FVD-style distribution metric, and data augmentation amount">
-            <figcaption>Stage-3 yields the strongest reported distributional and temporal prediction performance under the corrected stage-label convention.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="citation section-band" id="citation" aria-labelledby="citation-title">
-        <div class="content-width citation-layout">
-          <div>
-            <p class="section-kicker">Citation</p>
-            <h2 id="citation-title">Build on SurgGenesis.</h2>
-            <p>Use the project citation when referencing this work.</p>
-          </div>
-          <div class="citation-box">
-            <button class="icon-button copy-button" type="button" id="copy-citation" aria-label="Copy BibTeX citation" title="Copy BibTeX citation"><i data-lucide="copy"></i></button>
-            <pre id="citation-text"><code>@misc{surggenesis2026,
-  title  = {SurgGenesis: A Generative Surgical World Model},
-  author = {SurgGenesis Team},
-  year   = {2026}
-}</code></pre>
-          </div>
         </div>
       </section>
     </main>
@@ -207,8 +122,7 @@
     <footer class="site-footer">
       <div class="content-width footer-content">
         <span>SurgGenesis</span>
-        <span>Generative surgical world modeling</span>
-        <a href="#top" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up"></i></a>
+        <a href="https://github.com/Zh-Qr/SurgGenesis" target="_blank" rel="noreferrer">github.com/Zh-Qr/SurgGenesis <i data-lucide="arrow-up-right"></i></a>
       </div>
     </footer>
 
