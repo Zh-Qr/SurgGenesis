@@ -1,0 +1,17 @@
+SurgGenesis: A Generative Surgical World Model for Future-Aware Surgical Understanding
+Copyright 2026 The SurgGenesis Authors
+
+This product includes software developed for three-stage progressive LoRA
+fine-tuning of WAN2.2-TI2V-5B for surgical video generation.
+
+This project builds on, and is intended to be used together with, the
+following third-party works, each governed by its own license:
+
+  - WAN2.2 / Wan2.1 video model and backbone code (the `wan` package)
+    https://github.com/Wan-Video
+  - DiffSynth-Studio (LoRA training framework)
+    https://github.com/modelscope/DiffSynth-Studio
+
+The Cholec80, CholecT50, and CholecTrack20 datasets are the property of the
+CAMMA research group, University of Strasbourg, and are subject to their own
+data-use agreements. No patient data is included in this repository.

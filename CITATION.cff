@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "SurgGenesis: A Generative Surgical World Model for Future-Aware Surgical Understanding"
+abstract: >-
+  A three-stage progressive LoRA fine-tuning framework that adapts WAN2.2-TI2V-5B
+  to laparoscopic surgical video generation while resisting catastrophic forgetting,
+  via additive LoRA stacking (fuse-don't-replace), data replay, text-distribution
+  harmonization, block-restricted LoRA, and a decaying learning-rate schedule.
+type: software
+authors:
+  - given-names: "<First>"
+    family-names: "<Last>"
+    # email: you@example.com
+    # affiliation: "<Institution>"
+keywords:
+  - surgical world model
+  - future frame prediction
+  - video diffusion
+  - LoRA
+  - catastrophic forgetting
+  - surgical video generation
+  - domain adaptation
+  - WAN2.2-TI2V-5B
+license: Apache-2.0
+date-released: 2026-06-26
+version: "1.0.0"
+# repository-code: "https://github.com/<user>/SurgGenesis"
+preferred-citation:
+  type: generic
+  title: "SurgGenesis: A Generative Surgical World Model for Future-Aware Surgical Understanding"
+  authors:
+    - given-names: "<First>"
+      family-names: "<Last>"
+  year: 2026

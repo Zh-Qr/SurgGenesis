@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual envs
+.venv/
+venv/
+env/
+.conda/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# --- Large / non-redistributable artifacts (keep OUT of the repo) ---
+# Model weights & checkpoints
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+finetune_ckpts/
+checkpoints/
+
+# Raw datasets (licensed patient data — never commit)
+data/
+datasets/
+Cholec80/
+CholecT50/
+CholecTrack20/
+
+# Full evaluation outputs (only curated demos under assets/demo/ are committed)
+outputs/
+logs/
+*.log
+
+# Curated media IS tracked; uncomment to exclude if pushing code-only:
+# assets/demo/videos/

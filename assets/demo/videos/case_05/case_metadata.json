@@ -1,0 +1,13 @@
+{
+  "case": "case_05",
+  "source_video": "/mnt/data3/zhongqirui/Cholec80_slice/video19__seg0000__f0-2175.mp4",
+  "prompt": "realistic laparoscopic cholecystectomy video, intraoperative endoscopic view, surgical instruments interacting with soft tissue, physically plausible motion, natural camera movement, stable surgical lighting",
+  "condition_video": "/home/xuecheng/WAN_clean/outputs/eval_three_stage/paper_revision_full_20260610_190558/cases/case_05/condition.mp4",
+  "ground_truth_future": "/home/xuecheng/WAN_clean/outputs/eval_three_stage/paper_revision_full_20260610_190558/cases/case_05/ground_truth_future.mp4",
+  "generated": {
+    "base": "/home/xuecheng/WAN_clean/outputs/eval_three_stage/paper_revision_full_20260610_190558/cases/case_05/base_generated.mp4",
+    "stage1": "/home/xuecheng/WAN_clean/outputs/eval_three_stage/paper_revision_full_20260610_190558/cases/case_05/stage1_generated.mp4",
+    "stage2": "/home/xuecheng/WAN_clean/outputs/eval_three_stage/paper_revision_full_20260610_190558/cases/case_05/stage2_generated.mp4",
+    "stage3": "/home/xuecheng/WAN_clean/outputs/eval_three_stage/paper_revision_full_20260610_190558/cases/case_05/stage3_generated.mp4"
+  }
+}
